@@ -1,12 +1,18 @@
 import Notes from './components/Notes'
 import Info from './components/Info'
+import { useState } from 'react'
+import { SettingsContext } from './SettingsContext.js'
 
 function App() {
+  const [largeText, setLargeText] = useState(false)
+
   return (
-    <div className="min-h-screen bg-[#f5f5f5] font-light text-[#111]">
-      <Notes />
-      <Info name="Eif S. Taboada" />
-    </div>
+    <SettingsContext value={{ largeText, setLargeText }}>
+      <div className="bg-[#f5f5f5] font-light text-[#111]">
+        <Notes />
+        <Info name="Juan Dela Cruz" />
+      </div>
+    </SettingsContext>
   )
 }
 
